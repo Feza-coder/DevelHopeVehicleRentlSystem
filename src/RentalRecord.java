@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-class RentalRecord {
+public class RentalRecord {
     private Vehicle vehicle;
     private Customer customer;
     private LocalDate rentalDate;

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class RentalSystem {
+public class RentalSystem {
     private List<Vehicle> vehicles = new ArrayList<>();
     private Map<Vehicle, List<RentalRecord>> rentalRecords = new HashMap<>();
 
@@ -25,6 +25,7 @@ class RentalSystem {
         vehicle.rentOut();
         RentalRecord record = new RentalRecord(vehicle, customer, rentalDate);
         rentalRecords.get(vehicle).add(0, record); // Add to the beginning for recent records
+        System.out.println("Vehicle rented out successfully.");
         return record;
     }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Vehicle {
+public abstract class Vehicle {
     private String licensePlate;
     private String color;
     private double pricePerDay;

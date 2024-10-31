@@ -5,9 +5,11 @@ public class Main {
         RentalSystem rentalSystem = new RentalSystem();
 
         // Create some vehicles
-        Vehicle car = new Car("ABC123", "Red", 50.0);
-        Vehicle truck = new Truck("DEF456", "Blue", 80.0);
-        Vehicle motorcycle = new Motorcycle("GHI789", "Black", 30.0);
+        Vehicle car = new Car("BMW", "Red", 50.0);
+        Vehicle Car1 = new Car("Toyota", "Blue", 40.0);
+        Vehicle truck1 = new Truck("sinotruck", "Blue", 80.0);
+        Vehicle truck = new Truck("Truck1", "Blue", 80.0);
+        Vehicle motorcycle = new Motorcycle("Bajaaj", "Black", 30.0);
 
         // Add vehicles to the system
         rentalSystem.addVehicle(car);
@@ -15,7 +17,11 @@ public class Main {
         rentalSystem.addVehicle(motorcycle);
 
         // Create a customer
-        Customer customer = new Customer("John Doe", "123 Main St", 30);
+        Customer customer = new Customer("Melissa", "123 Kampala Street", 30);
+        System.out.println("Customer created: " + customer.getName());
+
+//        Customer customer1 = new Customer("Suzan", "423 Kampala Road", 34);
+//        System.out.println("Customer created: " + customer1.getName());
 
         // Rent out a vehicle
         RentalRecord record = rentalSystem.rentVehicle(car, customer, LocalDate.now());
@@ -24,6 +30,7 @@ public class Main {
         if (record != null) {
             rentalSystem.returnVehicle(record, LocalDate.now().plusDays(3));
             System.out.println("Total price: " + record.calculateTotalPrice());
+            System.out.println("Vehicle returned.");
         }
 
         // Get the last 5 rentals for a vehicle
