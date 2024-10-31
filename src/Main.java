@@ -37,7 +37,7 @@ public class Main {
         java.util.List<RentalRecord> last5Rentals = rentalSystem.getLast5Rentals(car);
         System.out.println("Last 5 rentals for the car:");
         for (RentalRecord r : last5Rentals) {
-            System.out.println("Rented by: " + r.getVehicle().getLicensePlate());
+            System.out.println("Plate number " + r.getVehicle().getLicensePlate() +" was rented by "+customer.getName());
         }
     }
 }
