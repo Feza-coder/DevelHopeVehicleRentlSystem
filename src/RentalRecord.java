@@ -16,6 +16,17 @@ public class RentalRecord {
     public Vehicle getVehicle() {
         return vehicle;
     }
+    public Customer getCustomer() {
+        return customer;
+    }
+    public LocalDate getRentDate() {
+        return rentDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
 
     public boolean isCurrentlyRented() {
         return returnDate == null;
