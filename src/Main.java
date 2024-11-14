@@ -14,7 +14,7 @@ public class Main {
 
         // Display the menu for the user
         while (true) {
-            System.out.println("\nVehicle Rental System");
+            System.out.println("\nVehicle Rental System\n===========================");
             System.out.println("1. Add Vehicle");
             System.out.println("2. Rent Vehicle");
             System.out.println("3. Return Vehicle");
@@ -51,6 +51,7 @@ public class Main {
         System.out.print("Enter price per day: ");
         double pricePerDay = scanner.nextDouble();
         scanner.nextLine(); // Consume newline
+
 
         Vehicle vehicle;
         switch (type.toLowerCase()) {
