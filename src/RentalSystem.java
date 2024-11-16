@@ -54,4 +54,15 @@ public class RentalSystem {
     public Collection<Vehicle> getVehicles() {
         return vehicles.values(); // Returns all vehicles
     }
+
+    public void removeVehicle(Vehicle vehicle) {
+        vehicles.remove(vehicle.getLicensePlate());
+        rentalRecords.removeIf(record -> record.getVehicle().equals(vehicle));
+        System.out.println("Vehicle removed successfully.");
+        //src\Vehicle.java
+    }
+
+    public List<Vehicle> getAllVehicles() {
+        return new ArrayList<>(vehicles.values());
+    }
 }

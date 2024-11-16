@@ -13,13 +13,16 @@ public class Main {
         rentalSystem.addVehicle(new Motorcycle("MOTO789", "Black", 30.0));
 
         // Display the menu for the user
+
         while (true) {
             System.out.println("\nVehicle Rental System\n===========================");
             System.out.println("1. Add Vehicle");
             System.out.println("2. Rent Vehicle");
             System.out.println("3. Return Vehicle");
             System.out.println("4. View Last 5 Rentals for a Vehicle");
-            System.out.println("5. Exit");
+            System.out.println("5. Remove Vehicle");
+            System.out.println("6. View All Vehicles");
+            System.out.println("7. Exit");
             System.out.print("Select an option: ");
 
             int choice = scanner.nextInt();
@@ -30,7 +33,9 @@ public class Main {
                 case 2 -> rentVehicle(rentalSystem, scanner);
                 case 3 -> returnVehicle(rentalSystem, scanner);
                 case 4 -> viewLast5Rentals(rentalSystem, scanner);
-                case 5 -> {
+                case 5  -> removeVehicle(rentalSystem, scanner);
+                case 6 -> viewAllVehicles(rentalSystem, scanner);
+                case 7-> {
                     System.out.println("Exiting the system. Thank you!");
                     scanner.close();
                     return;
@@ -119,6 +124,29 @@ public class Main {
         System.out.println("Vehicle returned successfully.");
     }
 
+
+    private static void removeVehicle(RentalSystem rentalSystem, Scanner scanner) {
+        System.out.print("Enter license plate of the vehicle to remove: ");
+        String licensePlate = scanner.nextLine();
+        Vehicle vehicle = rentalSystem.getVehicleByLicensePlate(licensePlate);
+        if (vehicle == null) {
+            System.out.println("Vehicle not found.");
+            return;
+        }
+        rentalSystem.removeVehicle(vehicle);
+        System.out.println("Thank you in case you want to add another one you can.");
+    }
+
+    private static void viewAllVehicles(RentalSystem rentalSystem, Scanner scanner) {
+        List<Vehicle> vehicles = rentalSystem.getAllVehicles();
+        if (vehicles.isEmpty()) {
+            System.out.println("No vehicles found.");
+            return;
+        }
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+        }
+    }
     // Method to display the last 5 rentals for a specific vehicle
     private static void viewLast5Rentals(RentalSystem rentalSystem, Scanner scanner) {
         System.out.print("Enter license plate of the vehicle: ");
